@@ -8,7 +8,7 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import {Tab, TabView} from 'react-native-elements';
+import {Tab, TabView, Input, colors} from 'react-native-elements';
 
 import {
   SafeAreaView,
@@ -36,20 +36,32 @@ const App: () => Node = () => {
   return (
     <>
       <Tab value={index} onChange={setIndex}>
-        <Tab.Item title="recent" />
-        <Tab.Item title="favorite" />
-        <Tab.Item title="cart" />
+        <Tab.Item title="Login" />
+        <Tab.Item title="Sign Up" />
       </Tab>
 
       <TabView value={index} onChange={setIndex}>
-        <TabView.Item style={{backgroundColor: 'red', width: '100%'}}>
-          <Text h1>Recent</Text>
+        <TabView.Item style={{width: '100%'}}>
+          <View>
+            <View style={styles.WelcomeContainer}>
+              <Text style={styles.WelComeLable}>Welcome Back,</Text>
+              <Text style={[styles.WelComeLable, styles.BoldText]}>Nadeem</Text>
+            </View>
+            <View style={styles.InputTemplate}>
+              <Input
+                style={styles.InputContainer}
+                placeholder="Email Address"
+              />
+              <Input
+                style={styles.InputContainer}
+                placeholder="Password"
+                secureTextEntry={true}
+              />
+            </View>
+          </View>
         </TabView.Item>
         <TabView.Item style={{backgroundColor: 'blue', width: '100%'}}>
           <Text h1>Favorite</Text>
-        </TabView.Item>
-        <TabView.Item style={{backgroundColor: 'green', width: '100%'}}>
-          <Text h1>Cart</Text>
         </TabView.Item>
       </TabView>
     </>
@@ -57,21 +69,24 @@ const App: () => Node = () => {
 };
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  InputContainer: {
+    borderBottomColor: '#ddd',
+    borderBottomWidth: 1,
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
+  WelcomeContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: '10%',
   },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
+  WelComeLable: {
+    fontSize: 30,
   },
-  highlight: {
-    fontWeight: '700',
+  InputTemplate: {
+    marginTop: '20%',
+  },
+  BoldText: {
+    fontWeight: 'bold',
   },
 });
 
