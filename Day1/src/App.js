@@ -8,7 +8,7 @@
 
 import React from 'react';
 import type {Node} from 'react';
-import {Tab, TabView, Input, colors} from 'react-native-elements';
+import {Tab, TabView, Input, Button} from 'react-native-elements';
 
 import {
   SafeAreaView,
@@ -36,8 +36,8 @@ const App: () => Node = () => {
   return (
     <>
       <Tab value={index} onChange={setIndex}>
-        <Tab.Item title="Login" />
-        <Tab.Item title="Sign Up" />
+        <Tab.Item style={styles.TabStyle} title="Login" />
+        <Tab.Item style={styles.TabStyle} title="Sign Up" />
       </Tab>
 
       <TabView value={index} onChange={setIndex}>
@@ -58,10 +58,39 @@ const App: () => Node = () => {
                 secureTextEntry={true}
               />
             </View>
+            <View style={styles.Button}>
+              <Button title="Button with icon component" />
+            </View>
           </View>
         </TabView.Item>
-        <TabView.Item style={{backgroundColor: 'blue', width: '100%'}}>
-          <Text h1>Favorite</Text>
+        <TabView.Item style={{width: '100%'}}>
+          <View>
+            <View style={styles.WelcomeContainer}>
+              <Text style={styles.WelComeLable}>
+                Hello <Text h1>Beautiful,</Text>
+              </Text>
+              <Text>
+                Enter your information below or {'\n'} login with a social media
+                account
+              </Text>
+            </View>
+            <View style={styles.InputTemplate}>
+              <Input
+                style={styles.InputContainer}
+                placeholder="Email Address"
+              />
+              <Input
+                style={styles.InputContainer}
+                placeholder="Password"
+                secureTextEntry={true}
+              />
+              <Input
+                style={styles.InputContainer}
+                placeholder="Password again"
+                secureTextEntry={true}
+              />
+            </View>
+          </View>
         </TabView.Item>
       </TabView>
     </>
@@ -72,6 +101,11 @@ const styles = StyleSheet.create({
   InputContainer: {
     borderBottomColor: '#ddd',
     borderBottomWidth: 1,
+  },
+  TabStyle: {
+    borderBottomColor: '#ddd',
+    borderBottomWidth: 1,
+    backgroundColor: 'white',
   },
   WelcomeContainer: {
     flexDirection: 'column',
