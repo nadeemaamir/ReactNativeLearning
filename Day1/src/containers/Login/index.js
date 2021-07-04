@@ -1,7 +1,8 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {Input, Button} from 'react-native-elements';
+import {Input} from 'react-native-elements';
 import styles from './styles';
+import Button from '../../components/Button'
 
 const Login = ({params}) => (
   <View>
@@ -27,7 +28,7 @@ const Login = ({params}) => (
       />
     </View>
     <View style={styles.Button}>
-      <Button style={styles.redbutton} title="--->" />
+      <Button style={styles.redbutton} title="Login" />
     </View>
   </View>
 );
