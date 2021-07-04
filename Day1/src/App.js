@@ -9,6 +9,7 @@
 import React from 'react';
 import type {Node} from 'react';
 import {Tab, TabView, Input, Button} from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import {
   SafeAreaView,
@@ -59,7 +60,7 @@ const App: () => Node = () => {
               />
             </View>
             <View style={styles.Button}>
-              <Button title="Button with icon component" />
+              <Button style={styles.yellowbutton} title="--->" />
             </View>
           </View>
         </TabView.Item>
@@ -89,6 +90,9 @@ const App: () => Node = () => {
                 placeholder="Password again"
                 secureTextEntry={true}
               />
+            </View>
+            <View style={styles.Button}>
+              <Button style={styles.redbutton} title="--->" />
             </View>
           </View>
         </TabView.Item>
@@ -121,6 +125,20 @@ const styles = StyleSheet.create({
   },
   BoldText: {
     fontWeight: 'bold',
+  },
+  Button: {
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    marginRight: '7%',
+    marginTop: '20%',
+  },
+  redbutton: {
+    backgroundColor: 'red',
+    padding: 5,
+  },
+  yellowbutton: {
+    backgroundColor: 'yellow',
+    padding: 5,
   },
 });
 
