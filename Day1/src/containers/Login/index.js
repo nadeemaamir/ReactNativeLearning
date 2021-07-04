@@ -1,6 +1,7 @@
 import React from 'react';
 import {Text, View} from 'react-native';
 import {Input, Button} from 'react-native-elements';
+import styles from './styles';
 
 const Login = ({params}) => (
   <View>
