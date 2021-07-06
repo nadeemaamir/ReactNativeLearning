@@ -1,25 +1,27 @@
 import React from 'react';
 import {Text, View} from 'react-native';
-import {Input} from 'react-native-elements';
-import Button from '../../components/Button'
+import Input from '../../components/TextInput';
 import styles from './styles';
+import Button from '../../components/Button';
 
 const SignUp = ({params}) => (
   <View>
     <View style={styles.WelcomeContainer}>
-      <Text style={styles.WelComeLable}>Welcome Back,</Text>
-      <Text style={[styles.WelComeLable, styles.BoldText]}>Nadeem</Text>
+      <Text style={styles.WelComeLable}>
+        Hello <Text h1>Beautiful,</Text>
+      </Text>
+      <Text>
+        Enter your information below or {'\n'} SifnUp with a social media
+        account
+      </Text>
     </View>
     <View style={styles.InputTemplate}>
-      <Input style={styles.InputContainer} placeholder="Email Address" />
-      <Input
-        style={styles.InputContainer}
-        placeholder="Password"
-        secureTextEntry={true}
-      />
+      <Input placeholder="Email Address" />
+      <Input placeholder="Password" secureTextEntry={true} />
+      <Input placeholder="Password again" secureTextEntry={true} />
     </View>
     <View style={styles.Button}>
-      <Button title='Sign Up' />
+      <Button style={styles.redbutton} title="Sign Up" />
     </View>
   </View>
 );
