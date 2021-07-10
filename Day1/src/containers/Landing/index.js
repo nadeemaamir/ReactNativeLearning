@@ -6,8 +6,9 @@ import SignUp from '../SignUp/index';
 import Login from '../Login/index';
 import styles from './styles';
 
-const Landing = ({params, navigation}) => {
+const Landing = ({params, navigation, route}) => {
   const [index, setIndex] = React.useState(0);
+  const {Username} = route.params;
   return (
     <>
       <Tab value={index} onChange={setIndex}>
@@ -17,7 +18,7 @@ const Landing = ({params, navigation}) => {
       <TabView value={index} onChange={setIndex}>
         <TabView.Item style={{width: '100%'}}>
           <>
-            <Login />
+            <Login UserName={Username} />
             <Text
               onPress={() => {
                 navigation.pop();

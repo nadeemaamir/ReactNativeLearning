@@ -4,11 +4,11 @@ import Button from '../../components/Button';
 import Input from '../../components/TextInput';
 import styles from './styles';
 
-const Login = ({params}) => (
+const Login = ({params, UserName}) => (
   <View>
     <View style={styles.WelcomeContainer}>
       <Text style={styles.WelComeLable}>Welcome Back,</Text>
-      <Text style={[styles.WelComeLable, styles.BoldText]}>Nadeem</Text>
+      <Text style={[styles.WelComeLable, styles.BoldText]}>{UserName}</Text>
     </View>
     <View style={styles.InputTemplate}>
       <Input placeholder="Email Address" />
