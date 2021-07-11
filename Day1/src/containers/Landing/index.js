@@ -8,7 +8,7 @@ import styles from './styles';
 
 const Landing = ({params, navigation, route}) => {
   const [index, setIndex] = React.useState(0);
-  const {Username} = route.params;
+  const {Username} = 'Test'; //route.params;
   return (
     <>
       <Tab value={index} onChange={setIndex}>
