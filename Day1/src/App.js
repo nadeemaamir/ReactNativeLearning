@@ -13,13 +13,16 @@ const Stack = createStackNavigator();
 
 const customoOptions = {
   headerStyle: {
-    backgroundColor: '#f4511e',
+    backgroundColor: '#000',
   },
-  headerTintColor: '#ddd',
+  headerTintColor: '#fff',
   headerTitleStyle: {
-    fontWeight: 'bold',
-    color: 'blue',
+   fontSize:16,
+   color:'white'
   },
+  headerTitleContainerStyle:{
+    fontSize:40
+  }
 };
 
 const App: () => Node = () => {
@@ -29,16 +32,14 @@ const App: () => Node = () => {
         <Stack.Screen
           name="Home"
           options={{
-            headerTitle: props => <Header title="Home" />,
-            ...customoOptions,
-          }}
+            ...customoOptions
+           }}
           component={Home}
         />
         <Stack.Screen
           name="Landing"
           options={{
-            ...customoOptions,
-            headerTitle: props => <Header title="Landing" />,
+           ...customoOptions
           }}
           component={Landing}
         />

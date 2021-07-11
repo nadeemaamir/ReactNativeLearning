@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View} from 'react-native';
 import Button from '../../components/Button';
 import Input from '../../components/TextInput';
+import Header from '../../components/Header'
 import styles from './styles';
 
 const Login = ({params, UserName}) => (

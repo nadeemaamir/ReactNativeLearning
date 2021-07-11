@@ -6,16 +6,18 @@ const Header = props => {
   console.log(props);
   return (
     <View style={styles.HeaderContainer}>
-      <Text styles={styles.TextStyle}>{props.title}</Text>
+      <Text styles={{color:'green'}}>{props.title}</Text>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   HeaderContainer: {
-    backgroundColor: '#f4511e',
-    color: 'white',
+   
   },
-  TextStyle: {color: 'white', fontWeight: 'bold', textAlign: 'center'},
+  TextStyle: {fontWeight: 'bold', 
+  textAlign: 'center',  
+  color: 'white',
+  fontSize:40}
 });
 export default Header;
