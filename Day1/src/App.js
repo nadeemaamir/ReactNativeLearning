@@ -56,9 +56,11 @@ const App: () => Node = () => {
             let iconName;
 
             if (route.name === 'Home') {
-              iconName = focused ? 'albums-outline' : 'disc-outline';
+              iconName = focused
+                ? 'ios-information-circle'
+                : 'ios-information-circle-outline';
             } else if (route.name === 'Landing') {
-              iconName = focused ? 'albums-outline' : 'disc-outline';
+              iconName = focused ? 'list-outline' : 'ios-list';
             }
 
             // You can return any component that you like here!
