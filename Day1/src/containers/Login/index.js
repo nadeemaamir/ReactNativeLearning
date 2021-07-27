@@ -10,16 +10,16 @@ const Login = ({params, UserName}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
-  const URL = `http://51.38.40.13:4041/api/Login/UserAuthentication?Username=${username}&Password=${password}`;
+  const url = `http://51.38.40.13:4041/api/Login/UserAuthentication?Username=${username}&Password=${password}`;
   const onLogin = async () => {
     try {
       setLoading(true);
-      console.log('url kia bana', URL);
-      const response = await axios.get(URL);
+      console.log('url kia bana', url);
+      const response = await fetch(url);
       alert('Login Successfully');
     } catch (error) {
       // eslint-disable-next-line no-alert
-      alert('Login Failed' + error);
+      console.log(error.response.data)
     } finally {
       setLoading(false);
     }
