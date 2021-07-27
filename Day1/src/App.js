@@ -9,6 +9,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import Landing from './containers/Landing';
 import Home from './containers/Home';
+import Detail from './containers/Detail';
 import Header from './components/Header';
 
 const Stack = createStackNavigator();
@@ -27,6 +28,16 @@ const customoOptions = {
     fontSize: 40,
   },
 };
+const HomeStack = createStackNavigator();
+
+function HomeStackScreen() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen name="Home" component={Home} />
+      <HomeStack.Screen name="Detail" component={Detail} />
+    </HomeStack.Navigator>
+  );
+}
 
 const App: () => Node = () => {
   return (
@@ -71,7 +82,7 @@ const App: () => Node = () => {
           activeTintColor: 'tomato',
           inactiveTintColor: 'gray',
         }}>
-        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Home" component={HomeStackScreen} />
         <Tab.Screen name="Landing" component={Landing} />
       </Tab.Navigator>
     </NavigationContainer>

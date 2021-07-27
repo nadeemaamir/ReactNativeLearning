@@ -1,9 +1,8 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Button} from 'react-native-elements';
+import {StyleSheet, Button} from 'react-native';
 
-const RNButton = ({title}) => (
-  <Button style={styles.yellowbutton} title={title} />
+const RNButton = ({title, onPress}) => (
+  <Button onPress={onPress} color="red" title={title} />
 );
 
 export default RNButton;
@@ -12,5 +11,6 @@ const styles = StyleSheet.create({
   yellowbutton: {
     backgroundColor: 'yellow',
     padding: 5,
+    marginHorizontal: 20,
   },
 });

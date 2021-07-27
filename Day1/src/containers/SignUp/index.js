@@ -1,8 +1,26 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Text, View, FlatList} from 'react-native';
 import Input from '../../components/TextInput';
 import styles from './styles';
 import Button from '../../components/Button';
+
+const Messages = [
+  {
+    id: 1,
+    Subjext: 'S1',
+    Body: 'B1',
+  },
+  {
+    id: 2,
+    Subjext: 'S2',
+    Body: 'B2',
+  },
+  {
+    id: 3,
+    Subjext: 'S3',
+    Body: 'B3',
+  },
+];
 
 const SignUp = ({params}) => (
   <View>
@@ -21,7 +39,26 @@ const SignUp = ({params}) => (
       <Input placeholder="Password again" secureTextEntry={true} />
     </View>
     <View style={styles.Button}>
-      <Button style={styles.redbutton} title="Sign Up" />
+      <Button
+        style={styles.redbutton}
+        onPress={() => {
+          alert('SignUp');
+        }}
+        title="Sign Up"
+      />
+    </View>
+    <View>
+      <FlatList
+        data={Messages}
+        keyExtractor={message => message.id.toString()}
+        renderItem={item => {
+          return (
+            <View>
+              <Text>item.Subjext</Text>
+            </View>
+          );
+        }}
+      />
     </View>
   </View>
 );
