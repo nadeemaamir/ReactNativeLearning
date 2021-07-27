@@ -1,8 +1,9 @@
 import React from 'react';
-import {StyleSheet, Button} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {Button} from 'react-native-elements';
 
-const RNButton = ({title, onPress}) => (
-  <Button onPress={onPress} color="red" title={title} />
+const RNButton = ({title, onPress, loading}) => (
+  <Button onPress={onPress} color="red" title={title} loading={loading} />
 );
 
 export default RNButton;

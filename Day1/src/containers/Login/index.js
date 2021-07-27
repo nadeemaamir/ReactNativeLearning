@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import axios from 'axios';
-import {Text, View} from 'react-native';
+import {Text, View, ActivityIndicator} from 'react-native';
 import Button from '../../components/Button';
 import Input from '../../components/TextInput';
 import Header from '../../components/Header';
@@ -9,13 +9,19 @@ import styles from './styles';
 const Login = ({params, UserName}) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
   const URL = `http://51.38.40.13:4041/api/Login/UserAuthentication?Username=${username}&Password=${password}`;
   const onLogin = async () => {
     try {
+      setLoading(true);
+      console.log('url kia bana', URL);
       const response = await axios.get(URL);
-      alert('Login Sucessfully');
+      alert('Login Successfully');
     } catch (error) {
+      // eslint-disable-next-line no-alert
       alert('Login Failed' + error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -36,7 +42,9 @@ const Login = ({params, UserName}) => {
       <View style={styles.Button}>
         <Button
           title="Login"
+          loading={loading}
           onPress={() => {
+            console.log('here');
             onLogin();
           }}
         />
