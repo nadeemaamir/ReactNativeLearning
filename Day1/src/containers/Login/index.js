@@ -7,19 +7,24 @@ import Header from '../../components/Header';
 import styles from './styles';
 
 const Login = ({params, UserName}) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('Asad');
+  const [password, setPassword] = useState('123');
   const [loading, setLoading] = useState(false);
-  const url = `http://51.38.40.13:4041/api/Login/UserAuthentication?Username=${username}&Password=${password}`;
+
+  const API_URL = 'https://api.themoviedb.org/3/movie/popular';
+  const API_KEY = 'bb925e230868e5ea561be5d9be231edb';
+  const PARAMS = 'page=1';
+  const BASE_URL = `${API_URL}?api_key=${API_KEY}&${PARAMS}`;
+  const URL = `https://51.38.40.13:4041/api/Login/UserAuthentication?Username=${username}&Password=${password}`;
   const onLogin = async () => {
     try {
       setLoading(true);
-      console.log('url kia bana', url);
-      const response = await fetch(url);
-      alert('Login Successfully');
+      console.log('URL kia bana', URL);
+      const response = await axios.get(`${BASE_URL}`);
+      console.log('response', response.data);
     } catch (error) {
       // eslint-disable-next-line no-alert
-      console.log(error.response.data)
+      console.log('error', error);
     } finally {
       setLoading(false);
     }
@@ -32,11 +37,16 @@ const Login = ({params, UserName}) => {
         <Text style={[styles.WelComeLable, styles.BoldText]}>{UserName}</Text>
       </View>
       <View style={styles.InputTemplate}>
-        <Input placeholder="Email Address" onChangeText={setUsername} />
+        <Input
+          placeholder="Email Address"
+          onChangeText={setUsername}
+          value={username}
+        />
         <Input
           placeholder="Password"
           secureTextEntry
           onChangeText={setPassword}
+          value={password}
         />
       </View>
       <View style={styles.Button}>
