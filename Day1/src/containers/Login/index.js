@@ -32,10 +32,10 @@ const Login = ({params, UserName}) => {
 
   return (
     <View>
-      <View style={styles.WelcomeContainer}>
+      {/* <View style={styles.WelcomeContainer}>
         <Text style={styles.WelComeLable}>Welcome Back,</Text>
         <Text style={[styles.WelComeLable, styles.BoldText]}>{UserName}</Text>
-      </View>
+      </View> */}
       <View style={styles.InputTemplate}>
         <Input
           placeholder="Email Address"

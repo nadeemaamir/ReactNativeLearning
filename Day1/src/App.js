@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import type {Node} from 'react';
 import {View, Text, Button} from 'react-native';
 
@@ -6,6 +6,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import SplashScreen from 'react-native-splash-screen';
 
 import Landing from './containers/Landing';
 import Home from './containers/Home';
@@ -40,6 +41,9 @@ function HomeStackScreen() {
 }
 
 const App: () => Node = () => {
+  useEffect(() => {
+    SplashScreen.hide();
+  }, []);
   return (
     // <NavigationContainer>
     //   <Stack.Navigator initialRouteName="Home">
